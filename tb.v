@@ -5,25 +5,20 @@ module tb;
 reg clk = 0;
 wire led;
 
-// Instantiate DUT
-top uut (
+ suresh uut (
     .clk(clk),
     .led(led)
 );
 
-/////////////////////////////////////////////////
-// CLOCK GENERATION (VERY IMPORTANT)
-/////////////////////////////////////////////////
-always #5 clk = ~clk;   // 10ns clock period
-
-/////////////////////////////////////////////////
-// SIMULATION CONTROL
-/////////////////////////////////////////////////
+ 
+always #5 clk = ~clk;  
+ 
 initial begin
     $dumpfile("wave.vcd");
     $dumpvars(0, tb);
+    $monitor("Time  = %0t clk = %b led = %d  ",$time,clk,led);
 
-    #2000;   // run long enough
+     #500;   
     $finish;
 end
 
