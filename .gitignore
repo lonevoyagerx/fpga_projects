@@ -1,0 +1,11 @@
+# Verilog / FPGA simulation files
+*.vcd
+*.vvp
+*_out
+
+# Logs / temp
+*.log
+*.jou
+
+# Build folders
+build/
